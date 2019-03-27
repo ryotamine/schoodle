@@ -1,6 +1,6 @@
 # Node Skeleton
 
-## Project Setup
+## Project Setup 
 
 1. Create your own empty repo on GitHub
 2. Clone this repository (do not fork)
