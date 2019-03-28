@@ -36,13 +36,17 @@ module.exports = (knex) => {
   });
 
   // GET guest_confirmation page REVIEW W MENTORS!!!!!!!!!!!!!!!!!!!
-    router.get("/event/guest_confirmation", (req, res) => {
+    router.get("/event/:uniqueURL/guest_confirmation", (req, res) => {
       res.render("guest_confirmation")
     });
 
   // GET event_results page
-  router.get("/event/results", (req, res) => {
+  router.get("/event/:uniqueURL/results", (req, res) => {
     res.render("event_results")
+  });
+
+  router.get("/event/:uniqueURL/guest_confirmation/modify", (req, res) => {
+    res.render("event_modify")
   });
 
 
@@ -52,10 +56,14 @@ module.exports = (knex) => {
 
 // POST create event page
   router.post("/event", (req, res) => {
-    res.render("host_confirmation");
+    res.redirect("/event/:event_id/host_confirmation");
   });
 
 // PUT for poll page (event_URL) REVIEW W MENTOR!!!!!!!!
-  router.post("", (req, res) => {
-    res.render("guest_confirmation");
+  router.post("/event/:event_id", (req, res) => {
+    res.redirect("/event/:event_id/guest_confirmation");
+  });
+
+  router.post("/event/:event_id/modify", (req, res) => {
+    res.redirect("/event/:event_id/guest_confirmation");
   });
