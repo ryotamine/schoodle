@@ -5,23 +5,42 @@
   <head>
     <title>Create an Event</title>
 
+    <!-- css styles -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+  
   </head>
 
   <body>
     <h1>Create Your Event</h1>
     <form>
-      <p> Name: </p>
+      <p> Your Name: </p> 
+      <input class="host_name" placeholder="enter your name"></input>
       <p> Description: </p>
-      <p> Note: </p>
+      <input class="host_email" placeholder="enter your email"></input>
+      <p> Notes: </p>
+      <input class="host_note" placeholder="any notes for your guests?"></input>
     </form>
-    <a href="/events/:event_id/confirmation" class="btn btn-info"></i>Submit</a>
-  </body>
+    <br>
+
+    <a href="/events/host_confirmation" class="btn btn-info"></i>Submit</a>
+
+  <p>Date: <input type="text" id="flatpickr" placeholder="Make your first choice" ></p>
+  <p>Date: <input type="text" id="flatpickr" placeholder="Make your second choice" ></p>
+  <p>Date: <input type="text" id="flatpickr" placeholder="Make your third choice" ></p>
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/calendar.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  
+
+
+</body>
 </html>
 
 <% include partials/_footer %>
