@@ -3,45 +3,58 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Create an Event</title>
-
-    <!-- css styles -->
+    <title>Schoodle</title>
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Fontawesome Link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
-  
   </head>
 
+  <!-- BODY BEGINS -->
   <body>
-    <h1>Create Your Event</h1>
-    <form>
-      <p> Your Name: </p> 
-      <input class="host_name" placeholder="enter your name"></input>
-      <p> Description: </p>
-      <input class="host_email" placeholder="enter your email"></input>
-      <p> Notes: </p>
-      <input class="host_note" placeholder="any notes for your guests?"></input>
-    </form>
-    <br>
+  <div class="jumbotron">
+    <h1 class="display-4">What's the occasion?</h1>
+    <hr class="my-4">
+    <p>Creating an event with Schoodle is easy. Just complete the form below and you're half-way there.</p>
+    <p class="lead">
+    </p>
+  <!-- Create an Event Form -->
+  <form method="" action="">
+    <div class="form-group">
+      <div>
+        <label> Title: <input type="text" placeholder="Title"></label>
+      </div>
+      <div>
+        <label> Location: <input type="text" placeholder="Location"></label>
+      </div>
+      <div>
+        <label> Note: <input type="text" placeholder="Add a note">
+      </div></label>
 
-    <a href="/events/host_confirmation" class="btn btn-info"></i>Submit</a>
+  </form>
+  </div>
+<a href="/events/host_confirmation" class="btn btn-info"></i>Submit</a>
 
-  <p>Date: <input type="text" id="flatpickr" placeholder="Make your first choice" ></p>
+<p>Date: <input type="text" id="flatpickr" placeholder="Make your first choice" ></p>
   <p>Date: <input type="text" id="flatpickr" placeholder="Make your second choice" ></p>
   <p>Date: <input type="text" id="flatpickr" placeholder="Make your third choice" ></p>
 
+
+
+
+
 <% include partials/_footer %>
 
+ <!-- SCRIPT TAGS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/calendar.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  
-
+  <script type="text/javascript" src="/scripts/calendar.js"></script>
 
 </body>
-</html>
 
+</html>
