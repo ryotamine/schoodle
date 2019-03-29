@@ -15,6 +15,10 @@ module.exports = (knex) => {
     return text;
   }
 
+  // Generate unique event ID
+  var eventID = generateRandomString();
+  var templateVars = { eventID };
+
   // User database
   const users = {};
 
@@ -31,41 +35,39 @@ module.exports = (knex) => {
     res.redirect("/host_confirmation");
   });
 
-  // GET host_confirmation page
+  // GET host confirmation page
   router.get("/host_confirmation", (req, res) => {
-    const eventID = generateRandomString();
-    let templateVars = { eventID };
     res.render("host_confirmation", templateVars);
   });
 
-  // GET event_URL page
+  // GET event URL page
   router.get("/:event_id", (req, res) => {
-    res.render("event_URL");
+    res.render("event_URL", templateVars);
   });
 
-  // POST event_URL page
+  // POST event URL page
   router.post("/:event_id", (req, res) => {
     res.redirect(`/${eventID}/guest_confirmation`);
   });
 
-  // GET guest_confirmation page
-  router.get("/:event_id/guests_confirmation", (req, res) => {
-    res.render("guests_confirmation");
+  // GET guest confirmation page
+  router.get("/:event_id/guest_confirmation", (req, res) => {
+    res.render("guests_confirmation", templateVars);
   });
 
-  // GET event_results page
-  router.get("/:event_id/results", (req, res) => {
-    res.render("event_results");
-  });
-
-  // GET event_modify page
+  // GET event modify page
   router.get("/:event_id/guest_confirmation/modify", (req, res) => {
-    res.render("event_modify");
+    res.render("event_modify", templateVars);
   });
 
-  // POST event_modify page
+  // POST event modify page
   router.post("/:event_id/modify", (req, res) => {
     res.redirect(`/${eventID}/guest_confirmation`);
+  });
+
+  // GET event results page
+  router.get("/:event_id/results", (req, res) => {
+    res.render("event_results");
   });
 
   // Return router
