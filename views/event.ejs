@@ -17,13 +17,14 @@
   <body>
   <% include partials/_nav %>
   <div class="jumbotron">
-    <h1 class="display-4">What's the occasion?</h1>
+    <br>
+    <h1 class="display-4 text-center">What's the occasion?</h1>
     <hr class="my-4">
     <p>Creating an event with Schoodle is easy. Just complete the form below and you're half-way there.</p>
     <p class="lead">
     </p>
   <!-- Create an Event Form -->
-  <form method="" action="">
+  <form method="POST" action="/events">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label> Title: </label>
@@ -53,7 +54,10 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-info btn-md mb-4"></i>Submit</button>
+     <div class="form-group col-md-4 mt-4 offset-md-4">
+       <button type="submit" style="width:250px;" class="btn btn-info text btn-md mb-4"></i>Submit</button>
+    </div>
+
 </form>
 </div>
 

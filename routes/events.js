@@ -26,7 +26,7 @@ module.exports = (knex) => {
 
   // POST create event page
   router.post("/", (req, res) => {
-    res.redirect("/host_confirmation");
+    res.redirect("/events/host_confirmation");
   });
 
   // GET host confirmation page
