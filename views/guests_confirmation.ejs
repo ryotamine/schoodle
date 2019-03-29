@@ -15,9 +15,9 @@
 
   <body>
     <h1>Thank you for voting!</h1>
-    <a href="/events/:uniqueURL/results" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</a>
+    <a href="/events/<%= eventID %>/results" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</a>
 
-    <a href="/events/:uniqueURL/guest_confirmation/modify" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</a>
+    <a href="/events/<%= eventID %>/guest_confirmation/modify" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</a>
 
   </body>
 </html>
