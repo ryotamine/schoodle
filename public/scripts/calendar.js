@@ -1,12 +1,13 @@
 $(document).ready(function() { 
 
-  console.log("document ready calendar.js");
+  var dateOptions=[];
   flatpickr("#flatpickr", {
     enableTime: true,
     dateFormat: "F, d Y H:i",
-    onChange: function(selectedDates, dateStr, instance) {
-      console.log(selectedDates, dateStr, instance)
-      //...
-  },
+    onClose: function(selectedDates, dateStr, instance) {
+      console.log(selectedDates[0])
+      dateOptions.push(selectedDates[0]);
+    },
   });
+  console.log(dateOptions);
 });
