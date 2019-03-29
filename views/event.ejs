@@ -11,31 +11,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
 
+  <!-- BODY BEGINS -->
   <body>
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">What's the occasion?</h1>
-      <p class="lead"></p>
-    </div>
-    </div>
-  <!-- FORM -->
-    <form action="" method="">
-
-      <div class="form-group">
-      <label for="Title"><i class="fas fa-pencil-alt"></i>Title:</label>
-        <textarea class="form-control" id="form_note" rows="3"></textarea>
-      <label for="Location"><i class="fas fa-search-location"></i>Location:</label>
-        <textarea class="form-control" id="form_note" rows="3"></textarea>
-      <label for="Note"><i class="fas fa-sticky-note"></i>Note:</label>
-        <textarea class="form-control" id="form_note" rows="3"></textarea>
+  <div class="jumbotron">
+    <h1 class="display-4">What's the occasion?</h1>
+    <hr class="my-4">
+    <p>Creating an event with Schoodle is easy. Just complete the form below and you're half-way there.</p>
+    <p class="lead">
+    </p>
+  <!-- Create an Event Form -->
+  <form method="" action="">
+    <div class="form-group">
+      <div>
+        <label> Title: <input type="text" placeholder="Title"></label>
       </div>
-      <p> Choose a Date: </p>
-      <p> Choose a Time: </p>
+      <div>
+        <label> Location: <input type="text" placeholder="Location"></label>
+      </div>
+      <div>
+        <label> Note: <input type="text" placeholder="Add a note">
+      </div></label>
 
-      <a href="/events/:event_id/confirmation" class="btn btn-info"></i>Submit</a>
-    </form>
-
-  <!-- I wanted to change "Submit" to "That's it!" -->
+    <a href="/events/:event_id/confirmation" class="btn btn-info"></i>Submit</a>
+  </form>
+  </div>
 
   <!-- SCRIPT TAGS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
