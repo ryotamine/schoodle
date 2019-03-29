@@ -19,12 +19,6 @@ module.exports = (knex) => {
   var eventID = generateRandomString();
   var templateVars = { eventID };
 
-  // User database
-  const users = {};
-
-  // Event URL database
-  const eventURL = {};
-
   // GET create event page
   router.get("/", (req, res) => {
     res.render("event");
