@@ -5,6 +5,26 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
+  // Generate string of 16 random alphanumeric characters
+  function generateRandomString() {
+    let text = "";
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (let i = 0; i < 16; i++) {
+      text += str.charAt(Math.floor(Math.random() * str.length));
+    }
+    return text;
+  }
+
+  // Generate unique event ID
+  var eventID = generateRandomString();
+  var templateVars = { eventID };
+
+  // User database
+  const users = {};
+
+  // Event URL database
+  const eventURL = {};
+
   // GET create event page
   router.get("/", (req, res) => {
     res.render("event");
@@ -12,42 +32,42 @@ module.exports = (knex) => {
 
   // POST create event page
   router.post("/", (req, res) => {
-    res.redirect("/:event_id/host_confirmation");
+    res.redirect("/host_confirmation");
   });
 
-  // GET host_confirmation page
-  router.get("/:event_id/confirmation", (req, res) => {
-    res.render("host_confirmation");
+  // GET host confirmation page
+  router.get("/host_confirmation", (req, res) => {
+    res.render("host_confirmation", templateVars);
   });
 
-  // GET event_URL page
-  router.get("/:uniqueURL", (req, res) => {
-    res.render("event_URL");
+  // GET event URL page
+  router.get("/:event_id", (req, res) => {
+    res.render("event_URL", templateVars);
   });
 
-  // POST event_URL page
-  router.post("/:uniqueURL", (req, res) => {
-    res.redirect("/:uniqueURL/guest_confirmation");
+  // POST event URL page
+  router.post("/:event_id", (req, res) => {
+    res.redirect(`/${eventID}/guest_confirmation`);
   });
 
-  // GET guest_confirmation page
-  router.get("/:uniqueURL/guests_confirmation", (req, res) => {
-    res.render("guests_confirmation");
+  // GET guest confirmation page
+  router.get("/:event_id/guest_confirmation", (req, res) => {
+    res.render("guests_confirmation", templateVars);
   });
 
-  // GET event_results page
-  router.get("/:uniqueURL/results", (req, res) => {
-    res.render("event_results");
+  // GET event modify page
+  router.get("/:event_id/guest_confirmation/modify", (req, res) => {
+    res.render("event_modify", templateVars);
   });
 
-  // GET event_modify page
-  router.get("/:uniqueURL/guest_confirmation/modify", (req, res) => {
-    res.render("event_modify");
-  });
-
-  // POST event_modify page
+  // POST event modify page
   router.post("/:event_id/modify", (req, res) => {
-    res.redirect("/:event_id/guest_confirmation");
+    res.redirect(`/${eventID}/guest_confirmation`);
+  });
+
+  // GET event results page
+  router.get("/:event_id/results", (req, res) => {
+    res.render("event_results");
   });
 
   // Return router

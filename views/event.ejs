@@ -1,3 +1,5 @@
+<% include partials/_header %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Fontawesome Link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
 
   <!-- BODY BEGINS -->
@@ -32,12 +36,27 @@
         <label> Note: <input type="text" placeholder="Add a note">
       </div></label>
 
-    <a href="/events/:event_id/confirmation" class="btn btn-info"></i>Submit</a>
   </form>
   </div>
+<a href="/events/host_confirmation" class="btn btn-info"></i>Submit</a>
 
-  <!-- SCRIPT TAGS -->
+<p>Date: <input type="text" id="flatpickr" placeholder="Make your first choice" ></p>
+  <p>Date: <input type="text" id="flatpickr" placeholder="Make your second choice" ></p>
+  <p>Date: <input type="text" id="flatpickr" placeholder="Make your third choice" ></p>
+
+
+
+
+<% include partials/_footer %>
+
+ <!-- SCRIPT TAGS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  </body>
+  <script type="text/javascript" src="/scripts/calendar.js"></script>
+
+</body>
+
 </html>
+
+
+
