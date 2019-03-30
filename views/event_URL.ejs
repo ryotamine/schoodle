@@ -42,10 +42,8 @@
     <div class="form-group col-md-4 mt-4 offset-md-4">
 
     <a href="/events/<%= eventID %>/guest_confirmation" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</a>
-    <form method="POST" action="/events/<%= eventID %>/delete_confirmation">
-      <div class="form-group col-md-4 mt-4 offset-md-4">
-        <button type="submit" style="width:250px;" class="btn btn-info text btn-md mb-4"></i>Decline Event</button>
-      </div>
+    <a href="/events/<%= eventID %>/delete_confirmation" class="btn btn-primary"><i class="fas fa-edit"></i>Decline Event</a>
+  
     <% include partials/_footer %>
     </div>
 </form>
