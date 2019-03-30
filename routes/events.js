@@ -68,7 +68,10 @@ module.exports = (knex) => {
         let title = result[0].title
         let location = result[0].location
         let note = result[0].description
-        let templateVars = { eventID: req.params.event_id, data: result, title: title, location: location, note: note};
+        let date1 = result[0].date_option
+        let date2 = result[1].date_option
+        let date3 = result[2].date_option
+        let templateVars = { eventID: req.params.event_id, data: result, title: title, location: location, note: note, date1: date1, date2: date2, date3: date3};
         res.render("event_URL", templateVars )
       })
   });
