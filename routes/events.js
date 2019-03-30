@@ -71,6 +71,15 @@ module.exports = (knex) => {
     res.render("event_results");
   });
 
+  // POST event URL page when event is declined 
+  router.get("/event_URL", (req, res) => {
+    res.render (`/${eventID}/guest_confirmation`);
+  });
+
+  router.post("/:event_id/delete_confirmation", (req, res) => {
+    console.log('event_id: ', req.params.event_id);
+    res.redirect(`/events/${eventID}/guest_confirmation`);
+  });
   // Return router
   return router;
 
