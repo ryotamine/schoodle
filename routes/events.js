@@ -26,7 +26,11 @@ module.exports = (knex) => {
 
   // POST create event page
   router.post("/", (req, res) => {
-    res.redirect("/events/host_confirmation");
+    console.log(req.body.title);
+    knex("events").insert({title: req.body.title })
+      .then(function (result) {
+        res.redirect("/events/host_confirmation");
+      });
   });
 
   // Vasily's Route
