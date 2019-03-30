@@ -16,8 +16,6 @@ module.exports = (knex) => {
   }
 
   // Generate unique event ID
-  var eventID = generateRandomString();
-  var templateVars = { eventID };
 
   // GET create event page
   router.get("/", (req, res) => {
@@ -26,11 +24,27 @@ module.exports = (knex) => {
 
   // POST create event page
   router.post("/", (req, res) => {
+    var eventID = generateRandomString();
     console.log(req.body.title);
-    knex("events").insert({title: req.body.title })
-      .then(function (result) {
-        res.redirect("/events/host_confirmation");
+    console.log(req.body.note);
+    console.log(req.body.location);
+    knex("events").insert({
+      title: req.body.title,
+      description: req.body.note,
+      location: req.body.location,
+      uniqueURL: eventID
+    }).returning('id')
+    .then(function (id) {
+      console.log(typeof(id));
+      console.log(id[0]);
+      knex("options_date").insert([
+          {date_option: req.body.date1, event_id: id[0]},
+          {date_option: req.body.date2, event_id: id[0]},
+          {date_option: req.body.date3, event_id: id[0]}
+        ]).then(function (result) {
+        res.redirect(`/events/host_confirmation/${eventID}`);
       });
+    });
   });
 
   // Vasily's Route
@@ -40,8 +54,9 @@ module.exports = (knex) => {
   // });
 
   // GET host confirmation page
-  router.get("/host_confirmation", (req, res) => {
-    // let templateVars = { }
+  router.get("/host_confirmation/:eventID", (req, res) => {
+    console.log(req.params.eventID);
+    let templateVars = { eventID: req.params.eventID };
     res.render("host_confirmation", templateVars);
   });
 
