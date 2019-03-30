@@ -7,7 +7,8 @@
   <!-- POLL BEGINS -->
   <div class="jumbotron">
     <br>
-    <h1 class="display-4 text-center">You've been Invited to [Event Name]</h1>
+    <%= JSON.stringify(data) %>
+    <h1 class="display-4 text-center">You've been Invited!</h1>
     <hr class="my-4">
     <p>What works best for you?</p>
     <p class="lead"></p>
@@ -15,9 +16,9 @@
     <form id="create_event" action="/events" method="POST">
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label> Title: [From from Submission] </label>
+        <label> Title: <%= title %> </label>
       <div class="form-group col-md-6">
-        <label> Location: [From form submission] </label>
+        <label> Location: <%= %> </label>
       </div>
     </div>
     <div class="form-group">

@@ -62,7 +62,13 @@ module.exports = (knex) => {
 
   // GET event URL page
   router.get("/:event_id", (req, res) => {
-    res.render("event_URL", templateVars);
+
+    knex.select('*').from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id )
+      .then(function(result) {
+        let title = result[0].title
+        let templateVars = { eventID: req.params.event_id, data: result, title: title};
+        res.render("event_URL", templateVars )
+      })
   });
 
   // POST event URL page
@@ -72,11 +78,13 @@ module.exports = (knex) => {
 
   // GET guest confirmation page
   router.get("/:event_id/guest_confirmation", (req, res) => {
+    let templateVars = { eventID: req.params.eventID };
     res.render("guests_confirmation", templateVars);
   });
 
   // GET event modify page
   router.get("/:event_id/guest_confirmation/modify", (req, res) => {
+    let templateVars = { eventID: req.params.eventID };
     res.render("event_modify", templateVars);
   });
 
