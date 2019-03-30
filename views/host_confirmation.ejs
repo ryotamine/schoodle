@@ -10,8 +10,10 @@
     <p class="lead text-center"></p>
     <hr class="my-3">
 
-    <div class="form-col-6">
-      <p><h5> Share your event with your friends! Copy this link: localhost:8080/events/<%= eventID %></h5></p>
+    <div class="col-xs-6 col-xs-offset-3">
+      <h5>Share your event with your friends! Copy this link:</h5>
+        <input value="localhost:8080/events/<%= eventID %>" type="text" id="copy-eventID">
+        <button id="copy">Copy</button>
     </div>
 <!-- Center, jumbotron fluid -->
 
