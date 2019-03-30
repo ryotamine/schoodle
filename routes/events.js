@@ -29,8 +29,15 @@ module.exports = (knex) => {
     res.redirect("/events/host_confirmation");
   });
 
+  // Vasily's Route
+  // router.post("/", (req, res) => {
+  //   let id = generateRandomString()
+  //   res.redirect(`/events/host_confirmation/${id}`);
+  // });
+
   // GET host confirmation page
   router.get("/host_confirmation", (req, res) => {
+    // let templateVars = { }
     res.render("host_confirmation", templateVars);
   });
 
