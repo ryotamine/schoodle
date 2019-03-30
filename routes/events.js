@@ -66,7 +66,9 @@ module.exports = (knex) => {
     knex.select('*').from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id )
       .then(function(result) {
         let title = result[0].title
-        let templateVars = { eventID: req.params.event_id, data: result, title: title};
+        let location = result[0].location
+        let note = result[0].description
+        let templateVars = { eventID: req.params.event_id, data: result, title: title, location: location, note: note};
         res.render("event_URL", templateVars )
       })
   });
