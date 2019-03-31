@@ -3,16 +3,39 @@
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-
+/*Main Image on Index Page*/
 .jumbotron img {
   height: 100%;
   width: 100%;
 }
-
+/*Index Page*/
 .logo{
   text-align: center;
 }
 
+/*Event_URL Page*/
+.checkbox {
+  height: 25px;
+  width: 25px;
+}
+
+#poll_logo{
+  text-align: center;
+  margin: 30px;
+}
+
+#title {
+  font-size: 20px;
+}
+
+#location {
+  font-size: 20px;
+}
+
+#note {
+  font-size: 20px;
+}
+/* Host Confirmation Page */
 .col-xs-6 {
   width: 50%;
 }
@@ -25,11 +48,12 @@
   width: 87%;
 }
 
+/* Footer */
 .footer-copyright {
   background-color: #fac05e;
   color: #495057;
 }
-/* Learn how to create a border for footer*/
+
 .footer-copyright i {
   color: #dc3545;
 }
