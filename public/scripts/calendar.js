@@ -8,8 +8,11 @@ $(document).ready(function() {
   var dateChoices={};
 
   flatpickr("#flatpickr", {
+    minDate: "today",
+    altInput: true,
+    altFormat: "D F J, Y at H:i",
     enableTime: true,
-    dateFormat: "F, d Y H:i",
+    //dateFormat: "Y-m-d-D, H:i",
     onClose: function(selectedDates) {
       var id = ($(this.element).attr('id'));
       dateChoices[id]=(selectedDates[0]);
