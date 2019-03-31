@@ -3,16 +3,48 @@
   <% include partials/_header %>
 
   <body>
-  <% include partials/_nav %>
-    <h1>Change Your Mind?</h1>
-    <form>
-      <p> Name: Given </p>
-      <p> Description: Given </p>
-      <p> Note: Given </p>
-      <p> date must change <p>
-      <p> time must change </p>
-    </form>
-    <a href="/events/<%= eventID %>/results" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</a>
-   <% include partials/_footer %>
+    <% include partials/_nav %>
+    <div class="jumbotron">
+
+      <br>
+      <h1 class="display-4 text-center">Change Your Mind?</h1>
+      <hr class="my-4">
+
+      <!-- Modify event confirmation from guest -->
+      <form id="modify_event" method="POST" action="/events/<%= eventID %>/results">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label> Title: <%= title %> </label>
+          </div>
+          <div class="form-group col-md-6">
+            <label> Location: <%= location %> </label>
+          </div>
+          <div class="form-group">
+            <label> Note: <%= description %> </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>Date: <%= date_data[0].date %> <%= date_data[0].votecount %> </label>
+            <input type="checkbox" name="date1" value="<%= date_data[0].id %>">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Date: <%= date_data[1].date %><%= date_data[1].votecount %> </label>
+            <input type="checkbox" name="date2" value="<%= date_data[1].id %>">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Date: <%= date_data[2].date %><%= date_data[2].votecount %> </label>
+            <input type="checkbox" name="date3" value="<%= date_data[2].id %>">
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 mt-4 offset-md-4 text-center">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</button>
+        </div>
+      </form>
+
+    </div>
+    <% include partials/_footer %>
   </body>
 </html>
