@@ -16,27 +16,27 @@
   <form id="create_event" action="/events/<%= eventID %>/guest_confirmation" method="POST">
   <div class="form-row">
     <div id="title" class="form-group col-md-4">
-      <label> Title: <%= title %> </label>
+      <label><strong> Title: </strong> <%= title %> </label>
     </div>
     <div id="location" class="form-group col-md-4">
-      <label> Location: <%= location %> </label>
+      <label><strong> Location: </strong><%= location %> </label>
     </div>
     <div id="note" class="form-group col-md-4">
-      <label> Note: <%= description %> </label>
+      <label><strong> Note: </strong> <%= description %> </label>
     </div>
 
 <!-- SELECT DATES FROM HERE -->
    <div class="form-row">
       <div class="form-group col-md-4">
-        <label>Date: <%= date_data[0].date %> <%= date_data[0].votecount %> </label>
+        <label><strong>Date:</strong> <%= date_data[0].date %> <%= date_data[0].votecount %> </label>
         <input type="checkbox" class="checkbox" name="date1" value="<%= date_data[0].id %>">
       </div>
       <div class="form-group col-md-4">
-        <label>Date: <%= date_data[1].date %><%= date_data[1].votecount %> </label>
+        <label><strong>Date:</strong> <%= date_data[1].date %><%= date_data[1].votecount %> </label>
         <input type="checkbox" class="checkbox" name="date2" value="<%= date_data[1].id %>">
       </div>
       <div class="form-group col-md-4">
-        <label>Date: <%= date_data[2].date %><%= date_data[2].votecount %> </label>
+        <label><strong>Date:</strong> <%= date_data[2].date %><%= date_data[2].votecount %> </label>
         <input type="checkbox" class="checkbox" name="date3" value="<%= date_data[2].id %>">
       </div>
     </div>

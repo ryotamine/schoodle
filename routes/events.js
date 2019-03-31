@@ -26,7 +26,7 @@ module.exports = (knex) => {
     console.log(req.body.title);
     console.log(req.body.note);
     console.log(req.body.location);
- 
+
     knex("events").insert({
       title: req.body.title,
       description: req.body.note,
@@ -61,7 +61,7 @@ module.exports = (knex) => {
         let date_data = [];
         // apply moments function to line 64
         result.forEach((element) => {
-          
+
           let date_data_info = {
             date: element.date_option,
             id: element.date_id,
@@ -108,24 +108,31 @@ module.exports = (knex) => {
       .whereIn('id', ids)
       .increment('votecount', 1)
     .then(function(result) {
+    res.cookie("dateSelected", ids.join(","))
     res.redirect(`/events/${req.params.event_id}/guest_confirmation`);
     });
   });
 
   // GET event modify page
   router.get("/:event_id/guest_confirmation/modify", (req, res) => {
+    let selected_dates = []
     knex.select(['events.id as event_id', 'events.title', 'events.location', 'events.description', 'options_date.id as date_id', 'options_date.date_option', 'options_date.votecount']).from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id ).orderBy('options_date.date_option', 'asc')
       .then(function(result) {
         let title = result[0].title;
         let location = result[0].location;
         let description = result[0].description;
         let date_data = [];
-        // apply moments function to line 64
+          if(req.cookies['dateSelected']){
+            selected_dates = req.cookies['dateSelected'].split(",")
+          };
+        // console.log(selected_dates, req.cookies['dateSelected']);
+        // console.log(selected_dates.includes("56"))
         result.forEach((element) => {
           let date_data_info = {
             date: element.date_option,
             id: element.date_id,
-            votecount: element.votecount
+            votecount: element.votecount,
+            is_selected: selected_dates.includes(element.date_id.toString())
           };
           date_data.push(date_data_info);
         });
@@ -139,10 +146,8 @@ module.exports = (knex) => {
 
   // POST event modify page
   router.post("/:event_id/guest_confirmation/modify", (req, res) => {
-    knex.select(['events.id as event_id', 'events.title', 'events.location', 'events.description', 'options_date.id as date_id', 'options_date.date_option', 'options_date.votecount']).from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id ).orderBy('options_date.date_option', 'asc').update({ votecount: 'options_date.event_id' })
-      .then(function(result) {
-        res.redirect(`events/${req.params.event_id}/guest_confirmation`);
-    });
+
+
   });
 
   // GET event results page
