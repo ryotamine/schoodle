@@ -153,8 +153,6 @@ module.exports = (knex) => {
     res.render (`/${eventID}/guest_confirmation`);
   });
 
-
-
   router.get("/:event_id/delete_confirmation", (req, res) => {
     console.log('event_id: ', req.params.event_id);
     res.redirect(`/events/${req.params.event_id}/guest_confirmation`);

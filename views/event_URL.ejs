@@ -9,21 +9,23 @@
     <br>
     <h1 class="display-4 text-center">You've been Invited!</h1>
     <hr class="my-4">
-    <p class="lead">What works best for you?</p>
-<!-- FORM STARTS HERE -->
-
-    <form id="create_event" action="/events/<%= eventID %>/guest_confirmation" method="POST">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label> Title: <%= title %> </label>
-      <div class="form-group col-md-6">
-        <label> Location: <%= location %> </label>
-      </div>
+  <div class="poll-text" "text-center">
+    <h5>What works best for you?</h5>
+  </div>
+<!-- POLL STARTS HERE -->
+  <form id="create_event" action="/events/<%= eventID %>/guest_confirmation" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label> Title: <%= title %> </label>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-4">
+      <label> Location: <%= location %> </label>
+    </div>
+    <div class="form-group col-md-4">
       <label> Note: <%= description %> </label>
     </div>
 
+<!-- SELECT DATES FROM HERE -->
    <div class="form-row">
       <div class="form-group col-md-4">
         <label>Date: <%= date_data[0].date %> <%= date_data[0].votecount %> </label>
@@ -42,6 +44,7 @@
     <div class="form-group col-md-4 mt-4 offset-md-4">
       <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</button>
     </div>
+
 </form>
 
     <form method="DELETE" action="">
