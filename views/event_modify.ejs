@@ -5,7 +5,7 @@
   <body>
     <% include partials/_nav %>
     <div class="jumbotron">
-
+    <%= JSON.stringify(date_data)%>
       <br>
       <h1 class="display-4 text-center">Change Your Mind?</h1>
       <hr class="my-4">
@@ -27,15 +27,27 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <label>Date: <%= date_data[0].date %> <%= date_data[0].votecount %> </label>
-            <input type="checkbox" name="date1" value="<%= date_data[0].id %>">
+            <input type="checkbox" name="date1" value="<%= date_data[0].id %>"
+            <% if(date_data[0].is_selected){ %>
+              checked
+             <% } %>
+            >
           </div>
           <div class="form-group col-md-4">
             <label>Date: <%= date_data[1].date %><%= date_data[1].votecount %> </label>
-            <input type="checkbox" name="date2" value="<%= date_data[1].id %>">
+            <input type="checkbox" name="date2" value="<%= date_data[1].id %>"
+            <% if(date_data[1].is_selected){ %>
+              checked
+             <% } %>
+            >
           </div>
           <div class="form-group col-md-4">
             <label>Date: <%= date_data[2].date %><%= date_data[2].votecount %> </label>
-            <input type="checkbox" name="date3" value="<%= date_data[2].id %>">
+            <input type="checkbox" name="date3" value="<%= date_data[2].id %>"
+            <% if(date_data[2].is_selected){ %>
+              checked
+             <% } %>
+            >
           </div>
         </div>
 
