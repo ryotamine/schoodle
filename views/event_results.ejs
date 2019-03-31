@@ -5,8 +5,30 @@
   <body>
   <% include partials/_nav %>
 
-
   <h1>The results are in!</h1>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"> Date </th>
+      <th scope="col"> Vote Count </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= date_data[0].date %></th>
+      <td> <%= date_data[0].votecount %> </td>
+    </tr>
+    <tr>
+      <th scope="row"><%= date_data[1].date %></th>
+      <td><%= date_data[1].votecount %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= date_data[2].date %></th>
+      <td><%= date_data[2].votecount %></td>
+    </tr>
+  </tbody>
+</table>
 
   <% include partials/_footer %>
   </body>

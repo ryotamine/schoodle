@@ -35,8 +35,6 @@ module.exports = (knex) => {
       uniqueURL: eventID
     }).returning('id')
     .then(function (id) {
-      console.log(typeof(id));
-      console.log(id[0]);
       knex("options_date").insert([
           {date_option: req.body.date1, event_id: id[0]},
           {date_option: req.body.date2, event_id: id[0]},
@@ -47,12 +45,6 @@ module.exports = (knex) => {
     });
   });
 
-  // Vasily's Route
-  // router.post("/", (req, res) => {
-  //   let id = generateRandomString()
-  //   res.redirect(`/events/host_confirmation/${id}`);
-  // });
-
   // GET host confirmation page
   router.get("/host_confirmation/:eventID", (req, res) => {
     console.log(req.params.eventID);
@@ -62,10 +54,8 @@ module.exports = (knex) => {
 
   // GET event URL page
   router.get("/:event_id", (req, res) => {
-
-    knex.select(['events.id as event_id', 'events.title', 'events.location', 'events.description', 'options_date.id as date_id', 'options_date.date_option']).from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id )
+    knex.select(['events.id as event_id', 'events.title', 'events.location', 'events.description', 'options_date.id as date_id', 'options_date.date_option', 'options_date.votecount']).from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id ).orderBy('options_date.date_option', 'asc')
       .then(function(result) {
-        console.log(result)
         let title = result[0].title
         let location = result[0].location
         let description = result[0].description
@@ -74,7 +64,8 @@ module.exports = (knex) => {
         result.forEach((element) => {
           let date_data_info = {
             date: element.date_option,
-            id: element.date_id
+            id: element.date_id,
+            votecount: element.votecount
           }
           date_data.push(date_data_info)
         })
@@ -99,8 +90,27 @@ module.exports = (knex) => {
 
   //POST guest confirmation page
   router.post("/:event_id/guest_confirmation", (req, res) => {
-    res.redirect(`/events/${req.params.event_id}/guest_confirmation`)
-  })
+    let ids = []
+
+    if(req.body.date1){
+      ids.push(req.body.date1)
+    };
+
+    if(req.body.date2){
+      ids.push(req.body.date2)
+    };
+
+    if(req.body.date3){
+      ids.push(req.body.date3)
+    }
+
+    knex('options_date')
+      .whereIn('id', ids)
+      .increment('votecount', 1)
+    .then(function(result) {
+    res.redirect(`/events/${req.params.event_id}/guest_confirmation`);
+    });
+  });
 
   // GET event modify page
   router.get("/:event_id/guest_confirmation/modify", (req, res) => {
@@ -115,7 +125,27 @@ module.exports = (knex) => {
 
   // GET event results page
   router.get("/:event_id/results", (req, res) => {
-    res.render("event_results");
+    knex.select(['events.id as event_id', 'events.title', 'events.location', 'events.description', 'options_date.id as date_id', 'options_date.date_option', 'options_date.votecount']).from('events').innerJoin('options_date', 'events.id', '=', 'options_date.event_id').where('events.uniqueURL', req.params.event_id ).orderBy('options_date.date_option', 'asc')
+      .then(function(result) {
+        let title = result[0].title
+        let location = result[0].location
+        let description = result[0].description
+        let date_data = []
+// apply moments function to line 76
+        result.forEach((element) => {
+          let date_data_info = {
+            date: element.date_option,
+            id: element.date_id,
+            votecount: element.votecount
+          }
+          date_data.push(date_data_info)
+        })
+        // let date1 = result[0].date_option
+        // let date2 = result[1].date_option
+        // let date3 = result[2].date_option
+        let templateVars = { eventID: req.params.event_id, data: result, title: title, location: location, description: description, date_data: date_data};
+        res.render("event_results", templateVars )
+      });
   });
 
   // POST event URL page when event is declined
@@ -123,8 +153,9 @@ module.exports = (knex) => {
     res.render (`/${eventID}/guest_confirmation`);
   });
 
-  router.get("/:event_id/delete_confirmation", (req, res) => {
 
+
+  router.get("/:event_id/delete_confirmation", (req, res) => {
     console.log('event_id: ', req.params.event_id);
     res.redirect(`/events/${req.params.event_id}/guest_confirmation`);
   });
