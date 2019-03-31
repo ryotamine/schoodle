@@ -180,7 +180,7 @@ module.exports = (knex) => {
 
   // DELETE event when guest declines
   router.delete("/:event_id/results", (req, res) => {
-    res.redirect(`/events/${req.params.event_id}/results`);
+    res.redirect(`/events/guest_confirmation`);
   });
 
   // Return router
