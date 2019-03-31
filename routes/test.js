@@ -14,3 +14,4 @@ knex.select(['events.id', 'events.title', 'events.location', 'events.note', 'opt
         <input type="checkbox" name="date3">
       </div>
     </div>
+div class="d-inline"

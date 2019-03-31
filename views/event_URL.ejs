@@ -44,14 +44,13 @@
     <div class="d-inline">
       <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Submit</button>
     </div>
-  </form>
-<!-- DELETE BUTTON -->
-    <div class="d-inline">
-      <form method="DELETE" action="/events/<%= eventID %>/results">
-        <button type="submit" class="btn btn-primary"><i class="fas fa-user-minus"></i> Decline Event</button>
-      </form>
-    </div>
-  </div>
+
+</form>
+    <form method="DELETE" action="/events/<%= eventID %>/guest_confirmation">
+      <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Decline Event</button>
+    </form>
+</div>
+
   <% include partials/_footer %>
   </body>
 </html>
