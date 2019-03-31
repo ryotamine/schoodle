@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router  = express.Router();
+var moment = require('moment');
+moment()
 
 module.exports = (knex) => {
 
@@ -28,6 +30,7 @@ module.exports = (knex) => {
     console.log(req.body.title);
     console.log(req.body.note);
     console.log(req.body.location);
+ 
     knex("events").insert({
       title: req.body.title,
       description: req.body.note,
@@ -62,6 +65,7 @@ module.exports = (knex) => {
         let date_data = []
 // apply moments function to line 76
         result.forEach((element) => {
+          
           let date_data_info = {
             date: element.date_option,
             id: element.date_id,
