@@ -2,8 +2,6 @@
 
 const express = require('express');
 const router  = express.Router();
-var moment = require('moment');
-moment()
 
 module.exports = (knex) => {
 
