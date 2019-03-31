@@ -83,7 +83,7 @@ module.exports = (knex) => {
 
   // GET guest confirmation page
   router.get("/:event_id/guest_confirmation", (req, res) => {
-    let templateVars = { eventID: req.params.eventID };
+    let templateVars = { eventID: req.params.event_id };
     res.render("guests_confirmation", templateVars);
   });
 
