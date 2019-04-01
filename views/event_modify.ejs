@@ -25,7 +25,7 @@
 
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label>Date: <%= date_data[0].date %> <%= date_data[0].votecount %> </label>
+            <label>Date: <%= date_data[0].date %>  </label>
             <input type="checkbox" name="date1" value="<%= date_data[0].id %>"
             <% if(date_data[0].is_selected){ %>
               checked
@@ -33,7 +33,7 @@
             >
           </div>
           <div class="form-group col-md-4">
-            <label>Date: <%= date_data[1].date %><%= date_data[1].votecount %> </label>
+            <label>Date: <%= date_data[1].date %> </label>
             <input type="checkbox" name="date2" value="<%= date_data[1].id %>"
             <% if(date_data[1].is_selected){ %>
               checked
@@ -41,7 +41,7 @@
             >
           </div>
           <div class="form-group col-md-4">
-            <label>Date: <%= date_data[2].date %><%= date_data[2].votecount %> </label>
+            <label>Date: <%= date_data[2].date %> </label>
             <input type="checkbox" name="date3" value="<%= date_data[2].id %>"
             <% if(date_data[2].is_selected){ %>
               checked

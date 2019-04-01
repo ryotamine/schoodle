@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
     return knex.schema.alterTable('options_date', function(table){
-        table.timestamp('date_option').alter();
+        table.timestamp('date_option');
     });
     };
 
