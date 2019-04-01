@@ -5,9 +5,11 @@
   <body>
     <% include partials/_nav %>
     <h1>Thank you for voting!</h1>
+    <!-- view results and modify buttons -->
+    <div class="form-group col-md-4 mt-4 offset-md-4">
     <a href="/events/<%= eventID %>/results" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</a>
-
     <a href="/events/<%= eventID %>/guest_confirmation/modify" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</a>
+    </div>
     <% include partials/_footer %>
   </body>
 </html>
