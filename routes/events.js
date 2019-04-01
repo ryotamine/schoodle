@@ -40,7 +40,7 @@ module.exports = (knex) => {
           {date_option: req.body.date1, event_id: id[0]},
           {date_option: req.body.date2, event_id: id[0]},
           {date_option: req.body.date3, event_id: id[0]}
-          
+
         ]).then(function (result) {
         res.redirect(`/events/host_confirmation/${eventID}`);
       });
@@ -62,7 +62,7 @@ module.exports = (knex) => {
         let location = result[0].location;
         let description = result[0].description;
         let date_data = [];
-        
+
         // apply moments function to line 64
         result.forEach((element) => {
           let date_data_info = {
@@ -221,7 +221,7 @@ module.exports = (knex) => {
         // apply moments function to line 154
         result.forEach((element) => {
           let date_data_info = {
-            date: moment(element.date_option).format('dddd MMMM Do YYYY, h:mm:a'),
+            date: moment(element.date_option).format('dddd MMMM Do YYYY, h:mma'),
             id: element.date_id,
             votecount: element.votecount
           }
