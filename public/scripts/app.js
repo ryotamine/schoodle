@@ -1,4 +1,15 @@
+// Host_Confirmation Page
+// Copy Button
+
 $(() => {
+  $("#copy").click(function() {
+    $("#copy-eventID").focus();
+    $("#copy-eventID").select();
+    document.execCommand("copy");
+  });
+});
+
+// Kept for Reference [Not using]
   // $.ajax({
   //   method: "GET",
   //   url: "/api/users"
@@ -21,14 +32,5 @@ $(() => {
   //   data: $("#create_event").serialize()
   //   });
   // });
-
-  // Copy button function
-  $("#copy").click(function() {
-    $("#copy-eventID").focus();
-    $("#copy-eventID").select();
-    document.execCommand("copy");
-  });
-
-});
 
 

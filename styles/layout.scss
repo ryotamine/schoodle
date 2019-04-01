@@ -3,12 +3,12 @@
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-/*Main Image on Index Page*/
+
 .jumbotron img {
   height: 100%;
   width: 100%;
 }
-/*Index Page*/
+
 .logo{
   text-align: center;
 }
@@ -16,7 +16,7 @@
 html, body {
   min-height:100%;
 }
-
+/* -------------------- */
 /*Event_URL Page*/
 .checkbox {
   height: 25px;
@@ -39,6 +39,7 @@ html, body {
 #note {
   font-size: 20px;
 }
+/* -------------------- */
 /* Host Confirmation Page */
 .col-xs-6 {
   width: 50%;
@@ -51,6 +52,8 @@ html, body {
 #copy-eventID {
   width: 87%;
 }
+
+/* -------------------- */
 
 /* Footer */
 .footer-copyright {
