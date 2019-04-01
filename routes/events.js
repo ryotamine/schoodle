@@ -65,10 +65,8 @@ module.exports = (knex) => {
         
         // apply moments function to line 64
         result.forEach((element) => {
-         // var formatted = moment(file_date).format('DD-MM-YYYY');
-
           let date_data_info = {
-            date: moment(element.date_option).format('MMMM Do YYYY, h:mm:ss a'),
+            date: moment(element.date_option).format('dddd MMMM Do YYYY, h:mma'),
             id: element.date_id,
             votecount: element.votecount
           };
@@ -136,7 +134,7 @@ module.exports = (knex) => {
         // console.log(selected_dates.includes("56"))
         result.forEach((element) => {
           let date_data_info = {
-            date: element.date_option,
+            date: moment(element.date_option).format('dddd MMMM Do YYYY, h:mma'),
             id: element.date_id,
             votecount: element.votecount,
             is_selected: selected_dates.includes(element.date_id.toString())
@@ -168,7 +166,7 @@ module.exports = (knex) => {
         // apply moments function to line 154
         result.forEach((element) => {
           let date_data_info = {
-            date: element.date_option,
+            date: moment(element.date_option).format('dddd MMMM Do YYYY, h:mm:a'),
             id: element.date_id,
             votecount: element.votecount
           }
