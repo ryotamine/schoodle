@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router  = express.Router();
+var moment = require('moment');
+
 
 module.exports = (knex) => {
 
@@ -23,10 +25,10 @@ module.exports = (knex) => {
   // POST create event page
   router.post("/", (req, res) => {
     var eventID = generateRandomString();
-    console.log(req.body.title);
-    console.log(req.body.note);
-    console.log(req.body.location);
-
+    // console.log(req.body.title);
+    // console.log(req.body.note);
+    // console.log(req.body.location);
+    console.log("Dates", req.body.date1);
     knex("events").insert({
       title: req.body.title,
       description: req.body.note,
@@ -38,6 +40,7 @@ module.exports = (knex) => {
           {date_option: req.body.date1, event_id: id[0]},
           {date_option: req.body.date2, event_id: id[0]},
           {date_option: req.body.date3, event_id: id[0]}
+          
         ]).then(function (result) {
         res.redirect(`/events/host_confirmation/${eventID}`);
       });
@@ -59,16 +62,20 @@ module.exports = (knex) => {
         let location = result[0].location;
         let description = result[0].description;
         let date_data = [];
+        
         // apply moments function to line 64
         result.forEach((element) => {
+         // var formatted = moment(file_date).format('DD-MM-YYYY');
 
           let date_data_info = {
-            date: element.date_option,
+            date: moment(element.date_option).format('MMMM Do YYYY, h:mm:ss a'),
             id: element.date_id,
             votecount: element.votecount
           };
           date_data.push(date_data_info);
         });
+        console.log("date data array!", date_data);
+
         // let date1 = result[0].date_option
         // let date2 = result[1].date_option
         // let date3 = result[2].date_option
