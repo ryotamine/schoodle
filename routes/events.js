@@ -90,6 +90,8 @@ module.exports = (knex) => {
 
   //POST guest confirmation page
   router.post("/:event_id/guest_confirmation", (req, res) => {
+
+    console.log(req.body)
     let ids = [];
 
     if(req.body.date1){
@@ -108,8 +110,8 @@ module.exports = (knex) => {
       .whereIn('id', ids)
       .increment('votecount', 1)
     .then(function(result) {
-    res.cookie("dateSelected", ids.join(","))
-    res.redirect(`/events/${req.params.event_id}/guest_confirmation`);
+      res.cookie("dateSelected", ids.join(","))
+      res.redirect(`/events/${req.params.event_id}/guest_confirmation`);
     });
   });
 
@@ -146,7 +148,60 @@ module.exports = (knex) => {
 
   // POST event modify page
   router.post("/:event_id/guest_confirmation/modify", (req, res) => {
+    //step 1 - grab data from cookies
+    let pre_selected_date = req.cookies['dateSelected'].split(",") //['58','59']
 
+    let new_selected_date = []; //['57','58']
+    if(req.body.date1){
+      new_selected_date.push(req.body.date1);
+    };
+    if(req.body.date2){
+      new_selected_date.push(req.body.date2);
+    };
+    if(req.body.date3){
+      new_selected_date.push(req.body.date3);
+    };
+
+    let increment_options = []
+    let decrement_options = []
+
+    new_selected_date.forEach((element) => {
+      if(!pre_selected_date.includes(element)) {
+        increment_options.push(parseInt(element))
+      }
+    });
+
+    pre_selected_date.forEach((element) => {
+      if(!new_selected_date.includes(element)) {
+        decrement_options.push(parseInt(element))
+      }
+    });
+
+    console.log("new", new_selected_date)
+    console.log("pre", pre_selected_date)
+
+    console.log("increment", increment_options, "dec", decrement_options)
+
+
+    if(increment_options.length > 0 || decrement_options > 0)
+    {
+        knex('options_date')
+        .whereIn('id', increment_options)
+        .increment('votecount', 1)
+        .then(function(result) {
+             knex('options_date')
+            .whereIn('id', decrement_options)
+            .where('votecount','>',0)
+            .decrement('votecount', 1)
+            .then(function(result) {
+              res.cookie("dateSelected", new_selected_date.join(","))
+              res.redirect(`/events/${req.params.event_id}/results`)
+            });
+        });
+
+    } else {
+      res.redirect(`/events/${req.params.event_id}/results`)
+    }
 
   });
 
@@ -189,8 +244,6 @@ module.exports = (knex) => {
   router.delete("/:event_id/results", (req, res) => {
     res.redirect(`/events/guest_confirmation`);
   });
-
   // Return router
   return router;
-
 }

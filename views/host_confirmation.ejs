@@ -6,16 +6,17 @@
   <% include partials/_nav %>
   <div class="jumbotron">
     <div class="container" >
-    <h1 class="display-4 text-center">You're almost there!</h1>
-    <p class="lead text-center"></p>
-    <hr class="my-3">
+      <h1 class="display-4 text-center">You're almost there!</h1>
+      <p class="lead text-center"></p>
+      <hr class="my-3">
 
-    <div class="col-xs-6 col-xs-offset-3">
-      <h5>Share your event with your friends!</h5>
-        <input value="localhost:8080/events/<%= eventID %>" type="text" id="copy-eventID">
-        <button id="copy">Copy</button>
+      <div class="col-xs-6 col-xs-offset-3">
+        <h5>Share your event with your friends!</h5>
+          <input value="localhost:8080/events/<%= eventID %>" type="text" id="copy-eventID">
+          <button id="copy">Copy</button>
+      </div>
     </div>
-
+  </div>
 
     <% include partials/_footer %>
   <!-- SCRIPT TAGS -->

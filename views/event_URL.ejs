@@ -40,13 +40,14 @@
         <input type="checkbox" class="checkbox" name="date3" value="<%= date_data[2].id %>">
       </div>
     </div>
+    <!-- Submit and Decline Event Buttons -->
+  <div class="form-group col-md-4 mt-4 offset-md-4">
+    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</button>
+    <a href="/events/<%= eventID %>/guest_confirmation" class="btn btn-primary"><i class="fas fa-edit"></i>Decline Event</a>
+  </div>
+
 </form>
 
-<!-- Submit and Decline Event Buttons -->
-<div class="form-group col-md-4 mt-4 offset-md-4">
-  <a href="/events/<%= eventID %>/guest_confirmation" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</a>
-  <a href="/events/<%= eventID %>/guest_confirmation" class="btn btn-primary"><i class="fas fa-edit"></i>Decline Event</a>
-</div>
 
   <% include partials/_footer %>
   </body>

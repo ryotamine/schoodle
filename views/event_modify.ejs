@@ -5,13 +5,12 @@
   <body>
     <% include partials/_nav %>
     <div class="jumbotron">
-    <%= JSON.stringify(date_data)%>
       <br>
       <h1 class="display-4 text-center">Change Your Mind?</h1>
       <hr class="my-4">
 
       <!-- Modify event confirmation from guest -->
-      <form id="modify_event" method="POST" action="/events/<%= eventID %>/results">
+      <form id="modify_event" method="POST" action="/events/<%= eventID %>/guest_confirmation/modify">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label> Title: <%= title %> </label>
@@ -51,16 +50,16 @@
           </div>
         </div>
 
-        <div class="form-group col-md-4 mt-4 offset-md-4 text-center">
-          <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</button>
+         <div class="form-group col-md-4 mt-4 offset-md-4">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</button>
         </div>
       </form>
 
-        <div>
+        <!-- <div>
           <form action="/events/<%= eventID %>/results" method="POST">
           <button type="submit">Modify</button>
           </form>
-        </div>
+        </div> -->
     </div>
     <% include partials/_footer %>
   </body>
