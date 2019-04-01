@@ -13,10 +13,14 @@
     <h3>What works best for you?</h3>
   </div>
 <!-- POLL STARTS HERE -->
+  <div class="form-group" "text-center">
+    <label><strong> Your Name: </strong><input type="text" name="name"></label>
+    <label><strong> Your Email: </strong><input type="email" name="email"></label>
+  <div>
   <form id="create_event" action="/events/<%= eventID %>/guest_confirmation" method="POST">
   <div class="form-row">
     <div id="title" class="form-group col-md-4">
-      <label><strong> Title: </strong> <%= title %> </label>
+      <label><strong> Event name: </strong> <%= title %> </label>
     </div>
     <div id="location" class="form-group col-md-4">
       <label><strong> Location: </strong><%= location %> </label>
@@ -47,7 +51,6 @@
   </div>
 </form>
 
-  <% include partials/_footer %>
   </body>
 </html>
 
