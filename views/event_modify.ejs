@@ -9,51 +9,49 @@
       <h1 class="display-4 text-center">Change Your Mind?</h1>
       <hr class="my-4">
 
-      <!-- Modify event confirmation from guest -->
-      <form id="modify_event" method="POST" action="/events/<%= eventID %>/guest_confirmation/modify">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label> Title: <%= title %> </label>
-          </div>
-          <div class="form-group col-md-6">
-            <label> Location: <%= location %> </label>
-          </div>
-          <div class="form-group">
-            <label> Note: <%= description %> </label>
-          </div>
-        </div>
+   <form id="modify_event" method="POST" action="/events/<%= eventID %>/guest_confirmation/modify">
+  <div class="form-row">
+    <div id="title" class="form-group col-md-4">
+      <label><strong> Title: </strong> <%= title %> </label>
+    </div>
+    <div id="location" class="form-group col-md-4">
+      <label><strong> Location: </strong><%= location %> </label>
+    </div>
+    <div id="note" class="form-group col-md-4">
+      <label><strong> Note: </strong> <%= description %> </label>
+    </div>
 
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label>Date: <%= date_data[0].date %>  </label>
-            <input type="checkbox" name="date1" value="<%= date_data[0].id %>"
-            <% if(date_data[0].is_selected){ %>
-              checked
-             <% } %>
-            >
-          </div>
-          <div class="form-group col-md-4">
-            <label>Date: <%= date_data[1].date %> </label>
-            <input type="checkbox" name="date2" value="<%= date_data[1].id %>"
-            <% if(date_data[1].is_selected){ %>
-              checked
-             <% } %>
-            >
-          </div>
-          <div class="form-group col-md-4">
-            <label>Date: <%= date_data[2].date %> </label>
-            <input type="checkbox" name="date3" value="<%= date_data[2].id %>"
-            <% if(date_data[2].is_selected){ %>
-              checked
-             <% } %>
-            >
-          </div>
-        </div>
+    <div class="form-row">
+      <div id="date1" class="form-group col-xs-4">
+        <label><strong> Date: </strong> <%= date_data[0].date %></label>
+        <input type="checkbox" name="date1" value="<%= date_data[0].id %>"
+        <% if(date_data[0].is_selected){ %>
+          checked
+        <% } %>
+        >
+      </div>
+      <div id="date2" class="form-group col-xs-4">
+        <label><strong> Date: </strong> <%= date_data[1].date %></label>
+        <input type="checkbox" name="date2" value="<%= date_data[1].id %>"
+        <% if(date_data[1].is_selected){ %>
+          checked
+        <% } %>
+        >
+      </div>
+      <div id="date3" class="form-group col-xs-4">
+        <label><strong> Date: </strong><%= date_data[2].date %> </label>
+        <input type="checkbox" name="date3" value="<%= date_data[2].id %>"
+        <% if(date_data[2].is_selected){ %>
+          checked
+          <% } %>
+        >
+      </div>
+      </div>
 
-         <div class="form-group col-md-4 mt-4 offset-md-4">
-          <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</button>
-        </div>
-      </form>
+      <div class="form-group col-md-4 mt-4 offset-md-4">
+        <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</button>
+      </div>
+  </form>
 
         <!-- <div>
           <form action="/events/<%= eventID %>/results" method="POST">
