@@ -4,7 +4,6 @@ const express = require('express');
 const router  = express.Router();
 var moment = require('moment');
 
-
 module.exports = (knex) => {
 
   // Generate string of 16 random alphanumeric characters
