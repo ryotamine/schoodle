@@ -1,2 +1,3 @@
-var a = moment().format();
-console.log(a);
+// Testing date format
+// var a = moment().format();
+// console.log(a);

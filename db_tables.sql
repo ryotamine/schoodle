@@ -1,9 +1,10 @@
+/* DB tables (rough draft). Refer to migrations for final copy. */
 CREATE TABLE host (
   id SERIAL PRIMARY KEY NOT NULL,
   name TEXT,
   email VARCHAR(50)
 );
-  
+
 CREATE TABLE events (
   id SERIAL PRIMARY KEY NOT NULL,
   title TEXT,
@@ -12,7 +13,7 @@ CREATE TABLE events (
   location VARCHAR (50),
   host_id VARCHAR(50) NOT NULL REFERENCES host(id),
   notes_id VARCHAR(255) NOT NULL REFERENCES notes(id)
-  );
+);
 
 CREATE TABLE notes (
   id SERIAL PRIMARY KEY NOT NULL,

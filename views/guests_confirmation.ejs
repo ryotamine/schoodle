@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <% include partials/_header %>
+  <head>
+    <% include partials/_header %>
+    <title>Schoodle</title>
+  </head>
 
   <body>
     <% include partials/_nav %>
 
     <div class="jumbotron">
-    <br>
-    <h1 class="display-4 text-center">Thank you for voting!</h1>
-    <hr class="my-4">
+      <br>
+      <h1 class="display-4 text-center">Thank you for voting!</h1>
+      <hr class="my-4">
 
-    <!-- view results and modify buttons -->
-    <div class="form-group col-md-4 mt-4 offset-md-4">
-    <a href="/events/<%= eventID %>/results" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</a>
-    <a href="/events/<%= eventID %>/guest_confirmation/modify" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</a>
+      <!-- View results and modify buttons -->
+      <div class="form-group col-md-4 mt-4 offset-md-4">
+      <a href="/events/<%= eventID %>/results" class="btn btn-primary"><i class="fas fa-edit"></i>View Results</a>
+      <a href="/events/<%= eventID %>/guest_confirmation/modify" class="btn btn-primary"><i class="fas fa-edit"></i>Modify</a>
     </div>
+
     <% include partials/_footer %>
   </body>
 </html>
-
-
-

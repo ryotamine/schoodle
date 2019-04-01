@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <% include partials/_header %>
+  <head>
+    <% include partials/_header %>
+    <title>Schoodle</title>
+  </head>
 
   <body>
     <% include partials/_nav %>
-  <!-- POLL BEGINS -->
-  <div class="jumbotron">
-    <br>
-    <h1 class="display-4 text-center">You've been Invited!</h1>
-    <hr class="my-4">
-  <div id="poll_logo" class="poll-text" "text-center">
-    <h3>What works best for you?</h3>
-  </div>
-<!-- POLL STARTS HERE -->
-  <div class="form-group" "text-center">
-    <label><strong> Your Name: </strong><input type="text" name="name"></label>
-    <label><strong> Your Email: </strong><input type="email" name="email"></label>
-  <div>
-  <form id="create_event" action="/events/<%= eventID %>/guest_confirmation" method="POST">
-  <div class="form-row">
-    <div id="title" class="form-group col-md-4">
-      <label><strong> Event name: </strong> <%= title %> </label>
-    </div>
-    <div id="location" class="form-group col-md-4">
-      <label><strong> Location: </strong><%= location %> </label>
-    </div>
-    <div id="note" class="form-group col-md-4">
-      <label><strong> Note: </strong> <%= description %> </label>
-    </div>
-  </div>
 
-<!-- SELECT DATES FROM HERE -->
-   <div class="form-row">
-      <div id="date1" class="form-group col-md-4">
-        <label><strong>Date:</strong> <%= date_data[0].date %>  </label>
-        <input type="checkbox" class="checkbox" name="date1" value="<%= date_data[0].id %>">
+    <!-- Poll begins -->
+    <div class="jumbotron">
+      <br>
+      <h1 class="display-4 text-center">You've been Invited!</h1>
+      <hr class="my-4">
+      <div id="poll_logo" class="poll-text" "text-center">
+        <h3>What works best for you?</h3>
       </div>
-      <div id="date2" class="form-group col-md-4">
-        <label><strong>Date:</strong> <%= date_data[1].date %> </label>
-        <input type="checkbox" class="checkbox" name="date2" value="<%= date_data[1].id %>">
-      </div>
-      <div id="date3" class="form-group col-md-4">
-        <label><strong>Date:</strong> <%= date_data[2].date %> </label>
-        <input type="checkbox" class="checkbox" name="date3" value="<%= date_data[2].id %>">
-      </div>
-    </div>
-    <!-- Submit and Decline Event Buttons -->
-  <div class="form-group col-md-4 mt-4 offset-md-4">
-    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</button>
-    <a href="/events/<%= eventID %>/guest_confirmation" class="btn btn-primary"><i class="fas fa-user-minus"></i> Decline Event </a>
-  </div>
-</form>
 
-<% include partials/_footer %>
+      <!-- Poll starts here -->
+      <div class="form-group" "text-center">
+        <label><strong> Your Name: </strong><input type="text" name="name"></label>
+        <label><strong> Your Email: </strong><input type="email" name="email"></label>
+      </div>
+      <form id="create_event" action="/events/<%= eventID %>/guest_confirmation" method="POST">
+        <div class="form-row">
+          <div id="title" class="form-group col-md-4">
+            <label><strong> Event name: </strong> <%= title %> </label>
+          </div>
+          <div id="location" class="form-group col-md-4">
+            <label><strong> Location: </strong><%= location %> </label>
+          </div>
+          <div id="note" class="form-group col-md-4">
+            <label><strong> Note: </strong> <%= description %> </label>
+          </div>
+        </div>
+
+        <!-- Select dates from here -->
+        <div class="form-row">
+          <div id="date1" class="form-group col-md-4">
+            <label><strong>Date:</strong> <%= date_data[0].date %>  </label>
+            <input type="checkbox" class="checkbox" name="date1" value="<%= date_data[0].id %>">
+          </div>
+          <div id="date2" class="form-group col-md-4">
+            <label><strong>Date:</strong> <%= date_data[1].date %> </label>
+            <input type="checkbox" class="checkbox" name="date2" value="<%= date_data[1].id %>">
+          </div>
+          <div id="date3" class="form-group col-md-4">
+            <label><strong>Date:</strong> <%= date_data[2].date %> </label>
+            <input type="checkbox" class="checkbox" name="date3" value="<%= date_data[2].id %>">
+          </div>
+        </div>
+
+        <!-- Submit and decline event buttons -->
+        <div class="form-group col-md-4 mt-4 offset-md-4">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Submit</button>
+          <a href="/events/<%= eventID %>/guest_confirmation" class="btn btn-primary"><i class="fas fa-user-minus"></i> Decline Event </a>
+        </div>
+      </form>
+    </div>
+
+    <% include partials/_footer %>
   </body>
 </html>
-
-
-

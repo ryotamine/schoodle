@@ -7,24 +7,26 @@
 
   <body>
     <% include partials/_nav %>
-  <div class="jumbotron">
-    <div class="container" >
-      <h1 class="display-4 text-center">Login</h1>
-      <p class="lead text-center"></p>
-      <hr class="my-3">
-    </div>
-    <div class="col-xs-4 col-xs-offset-3>
-      <label for="usr"><strong> Name: </strong></label>
-      <input type="text" class="form-control" id="usr">
-    </div>
-    <div class="col-xs-4 col-xs-offset-3>
-      <label for="email"><strong> Email: </strong></label>
-      <input type="email" class="form-control" id="email">
-    </div>
 
-  <!-- Redirect to create an event page -->
-    <div style="text-align:center; margin-top: 20px">
-      <a href="/events" id="continue" class="btn btn-info">Continue</a>
+    <div class="jumbotron">
+      <div class="container" >
+        <h1 class="display-4 text-center">Login</h1>
+        <p class="lead text-center"></p>
+        <hr class="my-3">
+      </div>
+      <div class="col-xs-4 col-xs-offset-3">
+        <label for="usr"><strong> Name: </strong></label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+      <div class="col-xs-4 col-xs-offset-3">
+        <label for="email"><strong> Email: </strong></label>
+        <input type="email" class="form-control" id="email">
+      </div>
+
+      <!-- Redirect to create an event page -->
+      <div style="text-align:center; margin-top: 20px">
+        <a href="/events" id="continue" class="btn btn-info">Continue</a>
+      </div>
     </div>
 
     <% include partials/_footer %>

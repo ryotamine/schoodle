@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <% include partials/_header %>
+  <head>
+    <% include partials/_header %>
+    <title>Schoodle</title>
+  </head>
 
-  <!-- BODY BEGINS -->
   <body>
-  <% include partials/_nav %>
+    <% include partials/_nav %>
 
-  <div class="jumbotron">
-    <br>
-    <h1 class="display-4 text-center">What's the occasion?</h1>
-    <hr class="my-4">
-    <p>Creating an event with Schoodle is easy. Just complete the form below and you're half-way there.</p>
-    <p class="lead">
-    </p>
-  <!-- Create an Event Form -->
-  <form id="create_event" action="/events" method="POST">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label> Title: </label>
-        <input type="text" class="form-control" name="title" placeholder="Ahmed Appreciation Day">
-      </div>
-      <div class="form-group col-md-6">
-        <label> Location: </label><input type="text" class="form-control" name="location" placeholder="Lighthouse Labs">
-      </div>
+    <div class="jumbotron">
+      <br>
+      <h1 class="display-4 text-center">What's the occasion?</h1>
+      <hr class="my-4">
+      <p>Creating an event with Schoodle is easy. Just complete the form below and you're half-way there.</p>
+      <p class="lead"></p>
+
+      <!-- Create an event form -->
+      <form id="create_event" action="/events" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label> Title: </label>
+            <input type="text" class="form-control" name="title" placeholder="Ahmed Appreciation Day">
+          </div>
+          <div class="form-group col-md-6">
+            <label> Location: </label><input type="text" class="form-control" name="location" placeholder="Lighthouse Labs">
+          </div>
+        </div>
+        <div class="form-group">
+          <label> Note: </label>
+          <input type="text" class="form-control" name="note" placeholder="Bring Donuts">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>Date: </label>
+            <input type="text" id="flatpickr" name="date1" placeholder="Option 1" >
+          </div>
+          <div class="form-group col-md-4">
+            <label>Date: </label>
+            <input type="text" id="flatpickr" name="date2" placeholder="Option 2" >
+          </div>
+          <div class="form-group col-md-4">
+            <label>Date: </label>
+            <input type="text" id="flatpickr" name="date3" placeholder="Option 3" >
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 mt-4 offset-md-4">
+          <button type="submit" style="width:250px;" class="btn btn-info text btn-md mb-4"></i>Submit</button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label> Note: </label>
-      <input type="text" class="form-control" name="note" placeholder="Bring Donuts">
-    </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label>Date: </label>
-        <input type="text" id="flatpickr" name="date1" placeholder="Option 1" >
-      </div>
-      <div class="form-group col-md-4">
-        <label>Date: </label>
-        <input type="text" id="flatpickr" name="date2" placeholder="Option 2" >
-      </div>
-      <div class="form-group col-md-4">
-        <label>Date: </label>
-        <input type="text" id="flatpickr" name="date3" placeholder="Option 3" >
-      </div>
-    </div>
+    <% include partials/_footer %>
 
-     <div class="form-group col-md-4 mt-4 offset-md-4">
-       <button type="submit" style="width:250px;" class="btn btn-info text btn-md mb-4"></i>Submit</button>
-    </div>
-</form>
-</div>
-
-<% include partials/_footer %>
-
- <!-- SCRIPT TAGS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/calendar.js"></script>
-
-</body>
-
+    <!-- Script tags -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/calendar.js"></script>
+  </body>
 </html>
