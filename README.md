@@ -4,11 +4,11 @@ Schoodle is a full-stack web application built with HTML, CSS, JS, jQuery, AJAX,
 
 ## Final Product
 
-!["Screenshot of home page"](https://github.com/pmckeegan/schoodle/blob/master/docs/index.png)
-!["Screenshot of create event page"](https://github.com/pmckeegan/schoodle/blob/master/docs/create_event.png)
-!["Screenshot of share event page"](https://github.com/pmckeegan/schoodle/blob/master/docs/share_event.png)
-!["Screenshot of poll event page"](https://github.com/pmckeegan/schoodle/blob/master/docs/poll_event.png)
-!["Screenshot of event results page"](https://github.com/pmckeegan/schoodle/blob/master/docs/results_event.png)
+!["Screenshot of home page"](https://github.com/ryotamine/schoodle/blob/master/docs/index.png)
+!["Screenshot of create event page"](https://github.com/ryotamine/schoodle/blob/master/docs/create_event.png)
+!["Screenshot of share event page"](https://github.com/ryotamine/schoodle/blob/master/docs/share_event.png)
+!["Screenshot of poll event page"](https://github.com/ryotamine/schoodle/blob/master/docs/poll_event.png)
+!["Screenshot of event results page"](https://github.com/ryotamine/schoodle/blob/master/docs/results_event.png)
 
 ## Dependencies
 
