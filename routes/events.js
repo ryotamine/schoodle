@@ -83,15 +83,15 @@ module.exports = (knex) => {
   router.post("/:event_id/guest_confirmation", (req, res) => {
     let ids = [];
 
-    if(req.body.date1){
+    if(req.body.date1) {
       ids.push(req.body.date1);
     };
 
-    if(req.body.date2){
+    if(req.body.date2) {
       ids.push(req.body.date2);
     };
 
-    if(req.body.date3){
+    if(req.body.date3) {
       ids.push(req.body.date3);
     };
 
