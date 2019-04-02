@@ -51,4 +51,4 @@ Schoodle is designed to allow guests with the unique event link to poll without 
 - Ryota Mine
 - Sarah Farah
 - Saba Zubair
-- Patrick McKeegan
+- Patrick McKeegan# schoodle
