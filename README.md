@@ -48,7 +48,7 @@ Schoodle is designed to allow guests with the unique event link to poll without 
 
 ## Contributors
 
-[- Ryota Mine](https://github.com/ryotamine)
-[- Sarah Farah](https://github.com/farahsaa)
-[- Saba Zubair](https://github.com/sabazubair)
-[- Patrick McKeegan](https://github.com/pmckeegan)
+- Ryota Mine (https://github.com/ryotamine)
+- Sarah Farah (https://github.com/farahsaa)
+- Saba Zubair (https://github.com/sabazubair)
+- Patrick McKeegan (https://github.com/pmckeegan)
