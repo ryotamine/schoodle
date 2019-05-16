@@ -42,13 +42,13 @@ Schoodle is a full-stack web application built with HTML, CSS, JS, jQuery, AJAX,
 
 Schoodle is an app for event scheduling. A host can create an event through a form. After the host creates the event, Schoodle will generate a unique URL that the host can then share with their friends.
 
-Once the guest receives the invitation link to the event, they can copy the link to view it in their browser. There they can vote on their availability and view the results of the event poll. They are also provided the options to decline the event altogether or modify their response after submission.
+Once the guest receives the invitation link to the event, they can copy the link to view it in their browser. There they can vote on their availability and view the results of the event poll. They are also provided with the options to decline the event altogether or modify their responses after submission.
 
 Schoodle is designed to allow guests with the unique event link to poll without logging in or registering. The view results page is dynamic and reflects the choices of the guests thereby allowing efficient decision-making.
 
 ## Contributors
 
-- Ryota Mine
-- Sarah Farah
-- Saba Zubair
-- Patrick McKeegan
+[- Ryota Mine](https://github.com/ryotamine)
+[- Sarah Farah](https://github.com/farahsaa)
+[- Saba Zubair](https://github.com/sabazubair)
+[- Patrick McKeegan](https://github.com/pmckeegan)
