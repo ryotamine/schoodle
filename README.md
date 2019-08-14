@@ -1,6 +1,6 @@
 # Schoodle Project
 
-Schoodle is a full-stack web application built with HTML, CSS, JS, jQuery, AJAX, Node, Express, SQL, and Knex that allows users to schedule events and share them with others.
+Schoodle is a full-stack web application built with HTML, CSS, JavaScript, jQuery, AJAX, Bootstrap, Node, Express, EJS, and PostgreSQL that allows users to schedule events and share them with others.
 
 ## Final Product
 
@@ -29,14 +29,15 @@ Schoodle is a full-stack web application built with HTML, CSS, JS, jQuery, AJAX,
 
 ## Getting Started
 
-1. Install dependencies: `npm i`
-2. Fix to binaries for sass: `npm rebuild node-sass`
-3. Run migrations: `npm run knex migrate:latest`
+1. Fork and clone
+2. Install dependencies: `npm install`
+3. Fix to binaries for sass: `npm rebuild node-sass`
+4. Run migrations: `npm run knex migrate:latest`
   - Check the migrations folder to see what gets created in the DB
-4. Run the seed: `npm run knex seed:run`
+5. Run the seed: `npm run knex seed:run`
   - Check the seeds file to see what gets seeded in the DB
-5. Run the server: `npm run local`
-6. Visit `http://localhost:8080/`
+6. Run the server: `npm run local`
+7. Visit <http://localhost:8080/>
 
 ## Functionality
 
